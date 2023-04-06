@@ -1,11 +1,34 @@
 body {
     background: url('Images/spy.png') center no-repeat fixed;
     background-size: 1000px;
-    background-color: ligh;
-}
-
-h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
     text-align: center;
+}
+
+h3 {
+    display: inline-block;
+}
+
+#rules {
+    text-align: left;
+}
+
+#locations {
+    text-align: right;
+}
+
+/* #play-div {
+    display: none;
+} */
+
+#set-up-div {
+    font-size: x-large;
+    display: none;
+}
+
+.fake-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
 }
