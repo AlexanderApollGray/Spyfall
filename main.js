@@ -13,7 +13,7 @@ setUpLink.addEventListener('click', displaySetUp);
 
 function displaySetUp() {
     homeDiv.style.display = 'none';
-    // setUpDiv.style.display = 'block';
+    setUpDiv.style.display = 'block';
 }
 
 // // Start Link Clicked
