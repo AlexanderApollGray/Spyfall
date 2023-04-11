@@ -9,7 +9,7 @@ let setUpLink = document.getElementById('set-up-link');
 let startLink = document.getElementById('start-link');
 
 // Play Link Clicked
-setUpLink.addEventListener('click', displaySetUp);
+setUpLink.addEventListener('click', displaySetUp)
 
 function displaySetUp() {
     homeDiv.style.display = 'none';
@@ -23,3 +23,17 @@ function displaySetUp() {
 //     setUpDiv.style.display = 'none';
 //     playDiv.style.display = 'block';
 // }
+
+// Main Code
+// HTML Variables
+let playersAmount = document.getElementById('players');
+let spiesAmount = document.getElementById('spies');
+
+// Global Variable
+let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary', 'Church', 'Circus',
+    'Embassy', 'Gas Station', 'Hospital', 'Hotel', 'Library', 'Military Base', 'Mine', 'Movie Theatre',
+    'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium', 'University', 'Zoo'];
+
+function displayStart() {
+
+}

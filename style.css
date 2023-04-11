@@ -18,17 +18,30 @@ h3 {
     text-align: right;
 }
 
-/* #play-div {
+#play-div {
     display: none;
-} */
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
 
 #set-up-div {
     font-size: x-large;
-    display: none;
+    display: block;
 }
 
 .fake-link {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+}
+
+#home-div {
+    display: none;
 }
