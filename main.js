@@ -26,8 +26,9 @@ function displaySetUp() {
 
 // Main Code
 // HTML Variables
-let playersAmount = document.getElementById('players');
-let spiesAmount = document.getElementById('spies');
+let playersAmount = document.getElementById('players').value;
+let spiesAmount = document.getElementById('spies').value;
+let startPlayers = document.getElementById('startPlayers');
 
 // Global Variable
 let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary', 'Church', 'Circus',
@@ -35,5 +36,7 @@ let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary'
     'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium', 'University', 'Zoo'];
 
 function displayStart() {
-
+    for (let p = 0; p < playersAmount; p++) {
+        startPlayers.innerHTML += `Player ${p}:`
+    }
 }
