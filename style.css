@@ -4,6 +4,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
     text-align: center;
+    color: red;
 }
 
 h3 {
@@ -18,9 +19,9 @@ h3 {
     text-align: right;
 }
 
-#play-div {
+/* #play-div {
     display: none;
-}
+} */
 
 a {
     color: blue;
@@ -31,7 +32,7 @@ a:hover {
     text-decoration: underline;
 }
 
-#set-up-div {
+/* #set-up-div {
     font-size: x-large;
     display: block;
 }
@@ -44,4 +45,4 @@ a:hover {
 
 #home-div {
     display: none;
-}
+} */
