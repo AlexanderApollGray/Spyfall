@@ -30,14 +30,9 @@ function btnClicked() {
     console.log(spiesAmount);
 }
 
-const btn = document.getElementById('btn');
 const btn2 = document.getElementById('btn2');
 const select = document.getElementById('players');
 const select2 = document.getElementById('spies');
-
-btn.addEventListener('click', () => {
-    window.location = 'setup.html';
-});
 
 btn2.addEventListener('click', () => {
     localStorage.setItem('select', select.value);
