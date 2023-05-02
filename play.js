@@ -1,5 +1,5 @@
 // const btn3 = document.getElementById('btn3');
-// const span = document.getElementById('span');
+const span = document.getElementById('span');
 
 // btn3.addEventListener('click', () => {
 //     window.location = 'home.html';
@@ -13,18 +13,17 @@ let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary'
     'Embassy', 'Gas Station', 'Hospital', 'Hotel', 'Library', 'Military Base', 'Mine', 'Movie Theatre',
     'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium', 'University', 'Zoo'];
 
-document.getElementById("btn3").addEventListener("click", btnClicked);
 
-function btnClicked() {
+window.onload = function () {
     // Make random players spies
     let playersAmount = localStorage.getItem('players');
-    let spiesAmount = localStorage.getItem('players');
-    let startPlayers = document.getElementById('start-players');
+    let spiesAmount = localStorage.getItem('spies');
+    let startPlayers = span;
     let random = '';
     let randomLocation = randomElement(locations);
     startPlayers.innerHTML = '';
     for (let n = 0; n < spiesAmount; n++) {
-        random = randomInt(0, 4);
+        random = randomInt(0, playersAmount);
     }
     for (let p = 0; p < playersAmount; p++) {
         if (p == random) {
@@ -36,4 +35,10 @@ function btnClicked() {
     }
     console.log(randomLocation);
     console.log(spiesAmount);
+}
+
+document.getElementById("btn3").addEventListener("click", btnClicked);
+
+function btnClicked() {
+    window.location = 'home.html';
 }

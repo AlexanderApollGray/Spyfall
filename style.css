@@ -18,3 +18,8 @@ h3 {
 #locations {
     text-align: right;
 }
+
+#startPlayers {
+    text-align: left;
+    font-size: x-large;
+}
