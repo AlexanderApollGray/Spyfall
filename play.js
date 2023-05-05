@@ -1,17 +1,10 @@
-// const btn3 = document.getElementById('btn3');
+// Spyfall JavaScript by Xander
 const span = document.getElementById('span');
 
-// btn3.addEventListener('click', () => {
-//     window.location = 'home.html';
-// });
-
-// window.onload = function () {
-// span.innerHTML = localStorage.getItem('select');
-// }
-// Global Variable
 let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary', 'Church', 'Circus',
-    'Embassy', 'Gas Station', 'Hospital', 'Hotel', 'Library', 'Military Base', 'Mine', 'Movie Theatre',
-    'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium', 'University', 'Zoo'];
+    'Embassy', 'Gas Station', 'Hospital', 'Hotel', 'Library', 'Market', 'Military Base', 'Mine',
+    'Movie Theatre', 'Park', 'Prison', 'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium',
+    'University', 'Wedding', 'Zoo'];
 
 
 window.onload = function () {

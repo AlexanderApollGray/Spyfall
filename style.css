@@ -11,13 +11,17 @@ h3 {
     display: inline-block;
 }
 
-#rules {
-    text-align: left;
+.learn {
+    font-size: x-large;
 }
 
-#locations {
+/* #rules {
+    text-align: left;
+} */
+
+/* #locations {
     text-align: right;
-}
+} */
 
 #startPlayers {
     text-align: left;
