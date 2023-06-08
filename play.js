@@ -6,28 +6,44 @@ let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary'
     'Movie Theatre', 'Park', 'Prison', 'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium',
     'University', 'Wedding', 'Zoo'];
 
-
 window.onload = function () {
-    // Make random players spies
     let playersAmount = localStorage.getItem('players');
     let spiesAmount = localStorage.getItem('spies');
     let startPlayers = span;
-    let random = '';
-    let randomLocation = randomElement(locations);
+    let spyIndices = getRandomIndices(playersAmount, spiesAmount);
+    let location = randomElement(locations)
     startPlayers.innerHTML = '';
-    for (let n = 0; n < spiesAmount; n++) {
-        random = randomInt(0, playersAmount);
-    }
+
+    // Assign roles to players
     for (let p = 0; p < playersAmount; p++) {
-        if (p == random) {
-            startPlayers.innerHTML += `<p>Player ${p + 1}: Spy</p>`
-        } else {
-            startPlayers.innerHTML += `<p>Player ${p + 1}: ${randomLocation}</p>`
-        }
-        console.log(random);
+        let role = spyIndices.includes(p) ? 'Spy' : location;
+        startPlayers.innerHTML += `<div class="box" onclick="revealRole(this)">
+                                     <p class="hidden">${role}</p>
+                                     </div>`;
     }
-    console.log(randomLocation);
-    console.log(spiesAmount);
+}
+
+// Function to generate an array of random indices
+function getRandomIndices(totalCount, count) {
+    let indices = [];
+    while (indices.length < count) {
+        let randomIndex = Math.floor(Math.random() * totalCount);
+        if (!indices.includes(randomIndex)) {
+            indices.push(randomIndex);
+        }
+    }
+    return indices;
+}
+
+// Function to reveal the role when a box is clicked
+function revealRole(box) {
+    box.classList.toggle('revealed');
+    let hiddenText = box.querySelector('.hidden');
+    if (hiddenText.innerHTML === "done") {
+        hiddenText.innerHTML = `Player ${p + 1}: Location`;
+    } else {
+        hiddenText.innerHTML = "done";
+    }
 }
 
 document.getElementById("btn3").addEventListener("click", btnClicked);
@@ -35,3 +51,4 @@ document.getElementById("btn3").addEventListener("click", btnClicked);
 function btnClicked() {
     window.location = 'home.html';
 }
+

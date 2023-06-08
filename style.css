@@ -15,15 +15,27 @@ h3 {
     font-size: x-large;
 }
 
-/* #rules {
-    text-align: left;
-} */
-
-/* #locations {
-    text-align: right;
-} */
-
 #startPlayers {
     text-align: left;
     font-size: x-large;
+}
+
+.box {
+    width: 150px;
+    height: 100px;
+    background-color: #ccc;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.revealed {
+    background-color: #fff;
+}
+
+.hidden {
+    display: none;
 }
