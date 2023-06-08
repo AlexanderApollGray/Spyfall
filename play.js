@@ -51,4 +51,3 @@ document.getElementById("btn3").addEventListener("click", btnClicked);
 function btnClicked() {
     window.location = 'home.html';
 }
-
