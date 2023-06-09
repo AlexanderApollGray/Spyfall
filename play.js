@@ -17,9 +17,8 @@ window.onload = function () {
     // Assign roles to players
     for (let p = 0; p < playersAmount; p++) {
         let role = spyIndices.includes(p) ? 'Spy' : location;
-        startPlayers.innerHTML += `<div class="box" onclick="revealRole(this)">
-                                     <p class="hidden">${role}</p>
-                                     </div>`;
+        startPlayers.innerHTML += `<div class="box" onclick="revealRole(this)" data-revealed="false" 
+        data-player="${p + 1}"><p class="hidden">${role}</p></div>`;
     }
 }
 
@@ -35,16 +34,27 @@ function getRandomIndices(totalCount, count) {
     return indices;
 }
 
-// Function to reveal the role when a box is clicked
 function revealRole(box) {
-    box.classList.toggle('revealed');
-    let hiddenText = box.querySelector('.hidden');
-    if (hiddenText.innerHTML === "done") {
-        hiddenText.innerHTML = `Player ${p + 1}: Location`;
-    } else {
+    let revealed = box.dataset.revealed;
+    if (revealed === "false") {
+        box.classList.add('revealed');
+        let hiddenText = box.querySelector('.hidden');
+        let role = hiddenText.innerHTML;
+        let player = box.dataset.player;
+        if (role === "Spy") {
+            hiddenText.innerHTML = `Player ${player}: Spy`;
+        } else {
+            hiddenText.innerHTML = `Player ${player}: ${role}`;
+        }
+        box.dataset.revealed = "true";
+    } else if (revealed === "true") {
+        box.classList.remove('revealed');
+        let hiddenText = box.querySelector('.hidden');
         hiddenText.innerHTML = "done";
+        box.dataset.revealed = "done";
     }
 }
+
 
 document.getElementById("btn3").addEventListener("click", btnClicked);
 

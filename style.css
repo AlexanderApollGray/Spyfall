@@ -32,10 +32,14 @@ h3 {
     margin: 10px;
 }
 
-.revealed {
+.box.revealed {
     background-color: #fff;
 }
 
-.hidden {
+.box .hidden {
     display: none;
+}
+
+.box.revealed .hidden {
+    display: block;
 }
