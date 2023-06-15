@@ -41,7 +41,7 @@ function revealRole(box) {
         for (let i = 0; i < thisIndex; i++) {
             if (classList[i] != 'done') return;
         }
-        
+
         let role = pElement.innerHTML;
         let player = box.dataset.player;
         if (role === "Spy") {
@@ -54,7 +54,7 @@ function revealRole(box) {
         pElement.classList.replace('hidden', 'revealed')
     } else if (className === "revealed") {
         pElement.innerHTML = "done";
-        
+
         box.classList.replace('revealed', 'done')
         pElement.classList.replace('revealed', 'done')
     }
