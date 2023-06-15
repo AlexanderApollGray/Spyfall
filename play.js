@@ -1,7 +1,6 @@
 // Spyfall JavaScript by Xander
-const span = document.getElementById('span');
 
-let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary', 'Church', 'Circus',
+let locations = ['Amusement Park', 'Bar', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary', 'Church', 'Circus',
     'Embassy', 'Gas Station', 'Hospital', 'Hotel', 'Library', 'Market', 'Military Base', 'Mine',
     'Movie Theatre', 'Park', 'Prison', 'Police Station', 'Restaurant', 'School', 'Spa', 'Stadium',
     'University', 'Wedding', 'Zoo'];
@@ -9,16 +8,14 @@ let locations = ['Amusement Park', 'Bank', 'Beach', 'Boat', 'Casino', 'Cemetary'
 window.onload = function () {
     let playersAmount = localStorage.getItem('players');
     let spiesAmount = localStorage.getItem('spies');
-    let startPlayers = span;
+    let startPlayers = document.getElementById('start-players');
     let spyIndices = getRandomIndices(playersAmount, spiesAmount);
     let location = randomElement(locations)
-    startPlayers.innerHTML = '';
 
     // Assign roles to players
     for (let p = 0; p < playersAmount; p++) {
         let role = spyIndices.includes(p) ? 'Spy' : location;
-        startPlayers.innerHTML += `<div class="box" onclick="revealRole(this)" data-revealed="false" 
-        data-player="${p + 1}"><p class="hidden">${role}</p></div>`;
+        startPlayers.innerHTML += `<div class="box hidden" onclick="revealRole(this)" data-player="${p + 1}"><p class="hidden">${role}</p></div>`;
     }
 }
 
@@ -35,23 +32,31 @@ function getRandomIndices(totalCount, count) {
 }
 
 function revealRole(box) {
-    let revealed = box.dataset.revealed;
-    if (revealed === "false") {
-        box.classList.add('revealed');
-        let hiddenText = box.querySelector('.hidden');
-        let role = hiddenText.innerHTML;
+    let pElement = box.children[0];
+    let className = pElement.classList[0];
+    let classList = Array.from(box.parentNode.children).map(child => child.classList[1])
+
+    if (className === 'hidden') {
+        let thisIndex = box.dataset.player - 1;
+        for (let i = 0; i < thisIndex; i++) {
+            if (classList[i] != 'done') return;
+        }
+        
+        let role = pElement.innerHTML;
         let player = box.dataset.player;
         if (role === "Spy") {
-            hiddenText.innerHTML = `Player ${player}: Spy`;
+            pElement.innerHTML = `Player ${player}: Spy`;
         } else {
-            hiddenText.innerHTML = `Player ${player}: ${role}`;
+            pElement.innerHTML = `Player ${player}: ${role}`;
         }
-        box.dataset.revealed = "true";
-    } else if (revealed === "true") {
-        box.classList.remove('revealed');
-        let hiddenText = box.querySelector('.hidden');
-        hiddenText.innerHTML = "done";
-        box.dataset.revealed = "done";
+
+        box.classList.replace('hidden', 'revealed')
+        pElement.classList.replace('hidden', 'revealed')
+    } else if (className === "revealed") {
+        pElement.innerHTML = "done";
+        
+        box.classList.replace('revealed', 'done')
+        pElement.classList.replace('revealed', 'done')
     }
 }
 

@@ -9,26 +9,16 @@ let rulesTextEl = document.getElementById("rules-text");
 let locationsEl = document.getElementById("locations");
 let locationsTextEl = document.getElementById("locations-text");
 
-rulesTextEl.style.display = "none";
 // Event Listener
 rulesEl.addEventListener("click", revealRules);
 
 function revealRules() {
-    if (rulesTextEl.style.display === "none") {
-        rulesTextEl.style.display === "block";
-    } else {
-        rulesTextEl.style.display === "none";
-    }
+    rulesTextEl.hidden = !rulesTextEl.hidden;
 }
 
-locationsTextEl.style.display = "none";
 // Event Listener
-locationsEl.addEventListener("click", reveallocations);
+locationsEl.addEventListener("click", revealLocations);
 
-function reveallocations() {
-    if (locationsTextEl.style.display === "none") {
-        locationsTextEl.style.display === "block";
-    } else {
-        locationsTextEl.style.display === "none";
-    }
+function revealLocations() {
+    locationsTextEl.hidden = !locationsTextEl.hidden;
 }
